@@ -117,7 +117,7 @@ export default function Landing() {
                 </div>
                 <div className="space-y-2">
                   <div className="bg-secondary border-2 border-black px-3 py-1 inline-block font-bold text-sm transform -rotate-2">
-                    Agentic AI Specialist
+                    GenAI / Agentic AI Specialist
                   </div>
                   <div className="bg-primary border-2 border-black px-3 py-1 inline-block font-bold text-sm text-white transform rotate-2 ml-2">
                     Community Builder
@@ -169,7 +169,6 @@ export default function Landing() {
                 role: "Senior ML Engineer - Consultant",
                 company: "Fractal Analytics",
                 period: "Jan 2025 – Apr 2025",
-                type: "Remote",
                 desc: [
                   "Built GenAI PoC for Fortune 500 clients, delivering document automation and NLP pipelines reducing manual effort by 60%.",
                   "Engineered Computer Use agentic systems for operational automation, translating 8+ complex business workflows into AI-driven execution pipelines, enabling autonomous decision-making for RPA use cases."
@@ -180,7 +179,6 @@ export default function Landing() {
                 role: "Senior ML Engineer - Contractor",
                 company: "BNY Mellon",
                 period: "Jun 2024 – Oct 2024",
-                type: "Remote",
                 desc: [
                   "Designed and implemented multi-agent GenAI orchestration system for event-stream decision automation.",
                   "Developed intelligent data ingestion pipeline for unstructured documents (client communications, regulatory filings), enabling context-aware LLM recommendations deployed across 12 business units with 89% user adoption.",
@@ -192,7 +190,6 @@ export default function Landing() {
                 role: "Founding Engineer - Contractor",
                 company: "Anarchy AI (YC W23)",
                 period: "Nov 2023 – Feb 2024",
-                type: "Remote",
                 desc: [
                   "Integrated LoRA/QLoRA fine-tuning and vLLM inference engine into LLM-VM Python package, reducing model latency by 40% and enabling 15+ enterprise integrations.",
                   "Authored comprehensive technical documentation (setup to production deployment) for LLM-VM, driving adoption across developer community and reducing onboarding time by 50%.",
@@ -204,7 +201,6 @@ export default function Landing() {
                 role: "ML Research Engineer",
                 company: "IIT Hyderabad",
                 period: "Sept 2022 – Jan 2023",
-                type: "Hyderabad, TS",
                 desc: [
                   "Curated, augmented, and meticulously cleaned large-scale sensor and imagery datasets, implementing rigorous quality assurance protocols ensuring data integrity for downstream ML tasks.",
                   "Designed and implemented state-of-the-art vision-based model architecture achieving 85% initial accuracy on UAV-mounted inference tasks for predictive infrastructure inspection workflows.",
@@ -216,7 +212,6 @@ export default function Landing() {
                 role: "ML Researcher",
                 company: "JHUB",
                 period: "Aug 2022 – Dec 2022",
-                type: "Hyderabad, TS",
                 desc: [
                   "Collaborated with domain experts to engineer pioneering feature representations capturing intricate molecular interactions, directly improving model efficacy and interpretability.",
                   "Orchestrated comprehensive hyperparameter optimization and model architecture experimentation, achieving 3% accuracy enhancement to 93% while maintaining generalization performance.",
@@ -237,7 +232,6 @@ export default function Landing() {
                     <h3 className="text-2xl font-black uppercase">{job.role}</h3>
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-lg font-bold text-gray-700">{job.company}</span>
-                      <span className="text-sm font-bold bg-gray-200 px-2 py-1 border border-black">{job.type}</span>
                     </div>
                     <ul className="list-disc list-outside ml-5 space-y-2">
                       {job.desc.map((point, i) => (
@@ -338,27 +332,32 @@ export default function Landing() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {[
               {
-                project: "Anarchy AI (YC W23) LLM-VM",
+                org: "Anarchy AI (YC W23)",
+                project: "LLM-VM",
                 desc: "Distributed ML library implementing multi-node training protocols",
                 prs: "Multiple PRs"
               },
               {
-                project: "Ivy Deep Learning Framework",
+                org: "Ivy",
+                project: "Deep Learning Framework",
                 desc: "Enhanced numerical operations and library compatibility",
                 prs: "PRs #21449, #21867"
               },
               {
-                project: "Lightning AI PyTorch Lightning",
+                org: "Lightning AI",
+                project: "PyTorch Lightning",
                 desc: "PyTorch wrapper simplifying complex model training",
                 prs: "PR #7"
               },
               {
-                project: "MindsDB Explainable AI",
+                org: "MindsDB",
+                project: "Explainable AI",
                 desc: "Enhanced model interpretation and visualization modules",
                 prs: "PR #3061"
               },
               {
-                project: "UnionML Ensemble Learning",
+                org: "UnionML",
+                project: "Ensemble Learning",
                 desc: "Implemented optimization strategies",
                 prs: "PR #180"
               }
@@ -367,8 +366,11 @@ export default function Landing() {
                 <div className="bg-black text-white p-3 border-2 border-black">
                   <GitPullRequest className="h-8 w-8" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-black uppercase mb-1">{item.project}</h3>
+                <div className="w-full">
+                  <div className="flex justify-between items-baseline mb-1 flex-wrap">
+                    <h3 className="text-xl font-black uppercase text-primary">{item.org}</h3>
+                    <span className="text-sm font-bold text-gray-600 uppercase border-b-2 border-gray-300">{item.project}</span>
+                  </div>
                   <p className="text-base font-medium mb-2">{item.desc}</p>
                   <span className="inline-block bg-secondary border-2 border-black px-2 py-1 text-xs font-bold uppercase">
                     {item.prs}
