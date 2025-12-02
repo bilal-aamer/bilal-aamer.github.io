@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText } from "lucide-react";
+import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText, MessageSquare, ShieldCheck, Search, GitPullRequest } from "lucide-react";
 
 export default function Landing() {
   const containerVariants = {
@@ -199,6 +199,30 @@ export default function Landing() {
                   "Partnered with community manager and founder on developer advocacy, growing active community contributors from 0 to 120+ and establishing LLM-VM as industry-standard devtool for LLM optimization."
                 ],
                 color: "bg-accent"
+              },
+              {
+                role: "ML Research Engineer",
+                company: "IIT Hyderabad",
+                period: "Sept 2022 – Jan 2023",
+                type: "Hyderabad, TS",
+                desc: [
+                  "Curated, augmented, and meticulously cleaned large-scale sensor and imagery datasets, implementing rigorous quality assurance protocols ensuring data integrity for downstream ML tasks.",
+                  "Designed and implemented state-of-the-art vision-based model architecture achieving 85% initial accuracy on UAV-mounted inference tasks for predictive infrastructure inspection workflows.",
+                  "Conducted systematic hyperparameter tuning and architectural optimization via comprehensive experimentation, achieving 92% accuracy milestone exceeding industry benchmarks (7% improvement)."
+                ],
+                color: "bg-pink-300"
+              },
+              {
+                role: "ML Researcher",
+                company: "JHUB",
+                period: "Aug 2022 – Dec 2022",
+                type: "Hyderabad, TS",
+                desc: [
+                  "Collaborated with domain experts to engineer pioneering feature representations capturing intricate molecular interactions, directly improving model efficacy and interpretability.",
+                  "Orchestrated comprehensive hyperparameter optimization and model architecture experimentation, achieving 3% accuracy enhancement to 93% while maintaining generalization performance.",
+                  "Implemented advanced data augmentation strategies reducing overfitting by 15% while building model resilience against data scarcity, critical for limited dataset domains."
+                ],
+                color: "bg-yellow-300"
               }
             ].map((job, index) => (
               <div key={index} className="relative pl-8 md:pl-0">
@@ -250,6 +274,34 @@ export default function Landing() {
                 desc: "Developed autonomous agent workflows integrating reinforcement learning and LLM reasoning for decision automation. Applied deep Q-networks (DQN) for iterative optimization of agent performance.",
                 icon: <Brain className="h-12 w-12" />,
                 color: "bg-blue-300"
+              },
+              {
+                title: "NESGPT: Environmental AI Scoring",
+                tags: ["Vision LLMs", "GPT-4V", "DINO", "Hugging Face"],
+                desc: "Architected innovative ESG assessment system leveraging multimodal vision-language models for geospatial analysis. Implemented DINO + GPT-4V pipeline for automated annotation of satellite/map imagery, extracting environmental metrics at scale.",
+                icon: <Globe className="h-12 w-12" />,
+                color: "bg-green-400"
+              },
+              {
+                title: "WiE: LLM-Powered Web3 Chat",
+                tags: ["LLMs", "Fine-tuning", "Flutter", "Python"],
+                desc: "Built Web3 chat application integrating fine-tuned LLMs for context-aware conversational AI. Optimized LLM performance through strategic fine-tuning, achieving 40% improvement in response quality and 35% increase in session duration.",
+                icon: <MessageSquare className="h-12 w-12" />,
+                color: "bg-purple-300"
+              },
+              {
+                title: "BKYC: Decentralized KYC",
+                tags: ["Blockchain", "Solidity", "Smart Contracts", "TensorFlow"],
+                desc: "Conceived decentralized identity verification system integrating ML-based document verification with blockchain smart contracts. Engineered smart contracts managing secure user data lifecycle and automated document validation.",
+                icon: <ShieldCheck className="h-12 w-12" />,
+                color: "bg-orange-300"
+              },
+              {
+                title: "Locus 2.0: LLM Query Engine",
+                tags: ["LangChain", "GPT 3.5-Turbo", "Docker", "NextJS"],
+                desc: "Developed full-stack conversational AI application leveraging GPT 3.5-turbo for context-aware query resolution with RAG. Architected backend infrastructure for LLM inference and streamlined deployment through Dockerization.",
+                icon: <Search className="h-12 w-12" />,
+                color: "bg-blue-400"
               }
             ].map((project, index) => (
               <div key={index} className={`bg-white border-4 border-black p-8 neo-shadow flex flex-col h-full relative overflow-hidden group`}>
@@ -269,6 +321,58 @@ export default function Landing() {
                   <p className="text-lg font-medium leading-relaxed border-t-4 border-black pt-4">
                     {project.desc}
                   </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Open Source Contributions Section */}
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white border-b-4 border-black">
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-black text-white border-4 border-black px-8 py-4 neo-shadow-sm transform -rotate-1">
+              Open Source Impact
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[
+              {
+                project: "Anarchy AI (YC W23) LLM-VM",
+                desc: "Distributed ML library implementing multi-node training protocols",
+                prs: "Multiple PRs"
+              },
+              {
+                project: "Ivy Deep Learning Framework",
+                desc: "Enhanced numerical operations and library compatibility",
+                prs: "PRs #21449, #21867"
+              },
+              {
+                project: "Lightning AI PyTorch Lightning",
+                desc: "PyTorch wrapper simplifying complex model training",
+                prs: "PR #7"
+              },
+              {
+                project: "MindsDB Explainable AI",
+                desc: "Enhanced model interpretation and visualization modules",
+                prs: "PR #3061"
+              },
+              {
+                project: "UnionML Ensemble Learning",
+                desc: "Implemented optimization strategies",
+                prs: "PR #180"
+              }
+            ].map((item, index) => (
+              <div key={index} className="border-4 border-black p-6 hover:bg-gray-50 transition-colors flex items-start gap-4">
+                <div className="bg-black text-white p-3 border-2 border-black">
+                  <GitPullRequest className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black uppercase mb-1">{item.project}</h3>
+                  <p className="text-base font-medium mb-2">{item.desc}</p>
+                  <span className="inline-block bg-secondary border-2 border-black px-2 py-1 text-xs font-bold uppercase">
+                    {item.prs}
+                  </span>
                 </div>
               </div>
             ))}
