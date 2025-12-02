@@ -124,8 +124,16 @@ export default function Landing() {
                   </div>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
-                   {["HackerRank 5*", "CodeChef 3*", "LeetCode"].map((profile, i) => (
-                     <span key={i} className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase">{profile}</span>
+                   {[
+                     { name: "HackerRank 5★", url: "https://www.hackerrank.com/profile/bilalahmedaamer" },
+                     { name: "CodeChef 3★", url: "" },
+                     { name: "LeetCode", url: "" }
+                   ].map((profile, i) => (
+                     profile.url ? (
+                       <a key={i} href={profile.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase hover:bg-primary hover:text-white transition-colors">{profile.name}</a>
+                     ) : (
+                       <span key={i} className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase">{profile.name}</span>
+                     )
                    ))}
                 </div>
               </div>
@@ -427,15 +435,17 @@ export default function Landing() {
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: "LinkedIn", url: "#" },
-              { name: "GitHub", url: "#" },
-              { name: "Twitter", url: "#" },
-              { name: "Kaggle", url: "#" },
-              { name: "Google Scholar", url: "#" }
+              { name: "LinkedIn", url: "https://www.linkedin.com/in/bilalaamer/" },
+              { name: "GitHub", url: "https://github.com/bilal-aamer/" },
+              { name: "Twitter", url: "https://x.com/TheBilalAamer" },
+              { name: "Kaggle", url: "https://www.kaggle.com/bilalaamer02" },
+              { name: "Google Scholar", url: "https://scholar.google.com/citations?user=9GxtCbkAAAAJ" }
             ].map((social) => (
               <a
                 key={social.name}
                 href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-lg font-bold hover:text-primary transition-colors uppercase border-b-2 border-transparent hover:border-primary"
               >
                 {social.name}
