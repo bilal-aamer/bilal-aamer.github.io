@@ -81,10 +81,10 @@ export default function Landing() {
                 DATA SCIENTIST
               </h1>
               <p className="text-xl md:text-2xl font-bold border-l-8 border-accent pl-6 py-2 bg-white neo-shadow">
-                Data Scientist specializing in GenAI and Agentic AI, with expertise in LLM fine-tuning, NLP pipelines, and intelligent automation.
+                Building the next generation of autonomous agents. I help enterprises leverage GenAI and Agentic workflows to automate complex decision-making and scale intelligence.
               </p>
               <p className="text-lg font-medium text-gray-700">
-                Skilled in transforming complex data into actionable insights, optimizing operations, and delivering enterprise-scale AI solutions for Fortune 500 clients.
+                Specializing in LLM fine-tuning, RAG pipelines, and multi-agent systems that turn unstructured data into business value.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
@@ -310,17 +310,55 @@ export default function Landing() {
         </section>
 
         {/* Education Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
-           <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col md:flex-row items-center gap-8">
-              <div className="bg-secondary p-6 border-4 border-black rounded-full">
-                <GraduationCap className="h-16 w-16" />
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+           <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+              Education
+            </h2>
+          </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Masters Tile */}
+              <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+                <div className="relative z-10">
+                  <div className="bg-secondary p-4 border-4 border-black rounded-full w-fit mb-4">
+                    <GraduationCap className="h-10 w-10" />
+                  </div>
+                  <h3 className="text-2xl font-black uppercase mb-2">Master of Technology</h3>
+                  <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
+                  <p className="text-lg font-medium text-primary mt-1">Computer Science and Engineering</p>
+                  <p className="text-black font-bold mt-2 border-2 border-black bg-gray-100 inline-block px-2 py-1">1st Class with distinction</p>
+                  <div className="mt-6">
+                    <p className="text-sm font-black uppercase mb-2 text-gray-500">Advanced Coursework</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Artificial Intelligence", "Machine Learning", "Neural Networks", "Deep Learning", "Speech Processing", "NLP"].map((course, i) => (
+                        <span key={i} className="text-xs font-bold border border-black px-2 py-1 bg-gray-50">{course}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-left">
-                <h3 className="text-3xl font-black uppercase mb-2">Education</h3>
-                <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
-                <p className="text-lg font-medium">Integrated Dual Degree (BTech + MTech), Computer Science and Engineering</p>
-                <p className="text-gray-600 font-bold mt-1">Hyderabad, TS • 2024 • 8 CGPA</p>
-                <p className="text-sm mt-2 font-medium">Coursework: AI, ML, Neural Networks, Deep Learning, Data Mining, DBMS, OOPS, OS, DSA, Speech Processing</p>
+
+              {/* Bachelors Tile */}
+              <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+                <div className="relative z-10">
+                  <div className="bg-primary p-4 border-4 border-black rounded-full w-fit mb-4 text-white">
+                    <GraduationCap className="h-10 w-10" />
+                  </div>
+                  <h3 className="text-2xl font-black uppercase mb-2">Bachelor of Technology</h3>
+                  <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
+                  <p className="text-lg font-medium text-primary mt-1">Computer Science and Engineering</p>
+                  <p className="text-black font-bold mt-2 border-2 border-black bg-gray-100 inline-block px-2 py-1">1st Class with distinction</p>
+                  <div className="mt-6">
+                    <p className="text-sm font-black uppercase mb-2 text-gray-500">Core Coursework</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Data Structures (DSA)", "DBMS", "Operating Systems", "OOPS", "Data Mining", "Computer Networks"].map((course, i) => (
+                        <span key={i} className="text-xs font-bold border border-black px-2 py-1 bg-gray-50">{course}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
            </div>
         </section>
