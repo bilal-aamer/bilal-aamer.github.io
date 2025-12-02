@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText, MessageSquare, ShieldCheck, Search, GitPullRequest } from "lucide-react";
+import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText, MessageSquare, ShieldCheck, Search, GitPullRequest, Plus } from "lucide-react";
 
 export default function Landing() {
   const containerVariants = {
@@ -378,6 +378,13 @@ export default function Landing() {
                 </div>
               </div>
             ))}
+            
+            <div className="border-4 border-black border-dashed p-6 flex flex-col items-center justify-center gap-4 hover:bg-gray-50 transition-colors min-h-[180px]">
+              <div className="bg-black text-white p-3 border-2 border-black rounded-full">
+                <Plus className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-center">And Many More...</h3>
+            </div>
           </div>
         </section>
 
