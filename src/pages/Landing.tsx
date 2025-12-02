@@ -212,15 +212,15 @@ export default function Landing() {
         </section>
 
         {/* Community Section */}
-        <section id="community" className="py-24 bg-accent border-y-4 border-black">
+        <section id="community" className="py-24 bg-[#FF6F00] border-y-4 border-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white border-4 border-black p-8 md:p-16 neo-shadow relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary border-l-4 border-b-4 border-black rounded-bl-full"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFD54F] border-l-4 border-b-4 border-black rounded-bl-full"></div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div>
                   <h2 className="text-5xl font-black mb-6 uppercase">
-                    Building <span className="text-primary underline decoration-4">Communities</span>
+                    Building <span className="text-[#FF6F00] underline decoration-4">Communities</span>
                   </h2>
                   <p className="text-xl font-medium mb-8 leading-relaxed">
                     I'm passionate about connecting AI enthusiasts. Whether it's organizing hackathons, speaking at conferences, or mentoring the next generation of data scientists, I believe in the power of community.
@@ -239,19 +239,22 @@ export default function Landing() {
                     ))}
                   </ul>
                   <Button 
+                    asChild
                     className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-14 px-8 text-xl w-full sm:w-auto"
                   >
-                    Join the Movement
+                    <a href="https://www.commudle.com/communities/tfug-hyderabad" target="_blank" rel="noopener noreferrer">
+                      Join the Movement
+                    </a>
                   </Button>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-primary h-48 border-4 border-black neo-shadow-sm flex items-center justify-center">
+                  <div className="bg-[#FF6F00] h-48 border-4 border-black neo-shadow-sm flex items-center justify-center">
                     <Users className="h-16 w-16 text-white" />
                   </div>
-                  <div className="bg-secondary h-48 border-4 border-black neo-shadow-sm mt-8 flex items-center justify-center">
+                  <div className="bg-[#FFD54F] h-48 border-4 border-black neo-shadow-sm mt-8 flex items-center justify-center">
                     <Globe className="h-16 w-16 text-black" />
                   </div>
-                  <div className="bg-yellow-400 h-48 border-4 border-black neo-shadow-sm -mt-8 flex items-center justify-center">
+                  <div className="bg-[#FFA000] h-48 border-4 border-black neo-shadow-sm -mt-8 flex items-center justify-center">
                     <Terminal className="h-16 w-16 text-black" />
                   </div>
                   <div className="bg-black h-48 border-4 border-black neo-shadow-sm flex items-center justify-center">
