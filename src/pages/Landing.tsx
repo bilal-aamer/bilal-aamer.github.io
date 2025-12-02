@@ -76,9 +76,9 @@ export default function Landing() {
                 👋 Hello, I'm Bilal Aamer
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight text-black">
-                SR. AI/ML <br />
-                <span className="text-primary bg-black px-2 text-white">ENGINEER</span> & <br />
-                DATA SCIENTIST
+                GENAI & <br />
+                <span className="text-primary bg-black px-2 text-white">AGENTIC AI</span> <br />
+                ARCHITECT
               </h1>
               <p className="text-xl md:text-2xl font-bold border-l-8 border-accent pl-6 py-2 bg-white neo-shadow">
                 Building the next generation of autonomous agents. I help enterprises leverage GenAI and Agentic workflows to automate complex decision-making and scale intelligence.
@@ -127,7 +127,7 @@ export default function Landing() {
                    {[
                      { name: "HackerRank 5★", url: "https://www.hackerrank.com/profile/bilalahmedaamer" },
                      { name: "CodeChef 3★", url: "" },
-                     { name: "LeetCode", url: "" }
+                     { name: "LeetCode", url: "https://leetcode.com/u/bilalaamer/" }
                    ].map((profile, i) => (
                      profile.url ? (
                        <a key={i} href={profile.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase hover:bg-primary hover:text-white transition-colors">{profile.name}</a>
@@ -326,8 +326,7 @@ export default function Landing() {
                   </div>
                   <h3 className="text-2xl font-black uppercase mb-2">Master of Technology</h3>
                   <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
-                  <p className="text-lg font-medium text-primary mt-1">Computer Science and Engineering</p>
-                  <p className="text-black font-bold mt-2 border-2 border-black bg-gray-100 inline-block px-2 py-1">1st Class with distinction</p>
+                  <p className="text-lg font-medium text-primary mt-1">Computer Science</p>
                   <div className="mt-6">
                     <p className="text-sm font-black uppercase mb-2 text-gray-500">Advanced Coursework</p>
                     <div className="flex flex-wrap gap-2">
@@ -349,7 +348,6 @@ export default function Landing() {
                   <h3 className="text-2xl font-black uppercase mb-2">Bachelor of Technology</h3>
                   <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
                   <p className="text-lg font-medium text-primary mt-1">Computer Science and Engineering</p>
-                  <p className="text-black font-bold mt-2 border-2 border-black bg-gray-100 inline-block px-2 py-1">1st Class with distinction</p>
                   <div className="mt-6">
                     <p className="text-sm font-black uppercase mb-2 text-gray-500">Core Coursework</p>
                     <div className="flex flex-wrap gap-2">
