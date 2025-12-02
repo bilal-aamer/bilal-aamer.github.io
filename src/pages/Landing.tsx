@@ -474,6 +474,49 @@ export default function Landing() {
            </div>
         </section>
 
+        {/* Community Leadership Section */}
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white border-b-4 border-black">
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-[#FF6F00] text-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+              Community Leadership
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* TFUG */}
+            <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFD54F] border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+               <div className="relative z-10">
+                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black bg-[#FF6F00]">
+                    2022 – Present
+                  </div>
+                  <h3 className="text-2xl font-black uppercase mb-1">Community Organizer</h3>
+                  <h4 className="text-xl font-bold mb-4">TensorFlow User Group</h4>
+                  <ul className="list-disc list-outside ml-5 space-y-2">
+                    <li className="text-base font-medium leading-snug">Organize and host meetups, webinars, and technical discussions on TensorFlow, deep learning, and emerging AI technologies.</li>
+                    <li className="text-base font-medium leading-snug">Cultivate platform for knowledge sharing, professional networking, and skill development among 500+ local technology enthusiasts.</li>
+                  </ul>
+               </div>
+            </div>
+
+            {/* GDSC */}
+            <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-24 h-24 bg-[#4285F4] border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+               <div className="relative z-10">
+                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black bg-[#EA4335]">
+                    2020 – 2023
+                  </div>
+                  <h3 className="text-2xl font-black uppercase mb-1">Lead</h3>
+                  <h4 className="text-xl font-bold mb-4">Google Developer Student Club</h4>
+                  <ul className="list-disc list-outside ml-5 space-y-2">
+                    <li className="text-base font-medium leading-snug">Orchestrated 25+ 100%-sponsored technical events attracting 100+ in-person attendees per session.</li>
+                    <li className="text-base font-medium leading-snug">Led workshops, tech talks, and collaborative learning initiatives promoting Google technologies, open source, and programming excellence.</li>
+                  </ul>
+               </div>
+            </div>
+          </div>
+        </section>
+
         {/* Community Section */}
         <section id="community" className="py-24 bg-[#FF6F00] border-y-4 border-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
