@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users } from "lucide-react";
+import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText } from "lucide-react";
 
 export default function Landing() {
   const containerVariants = {
@@ -34,11 +34,11 @@ export default function Landing() {
           <div className="flex justify-between h-20 items-center">
             <div className="flex-shrink-0 flex items-center">
               <span className="text-3xl font-black tracking-tighter uppercase border-2 border-black p-1 bg-primary text-white neo-shadow-sm transform -rotate-2">
-                BILAL
+                BILAL AAMER
               </span>
             </div>
             <div className="hidden md:flex space-x-8">
-              {["About", "Skills", "Community", "Contact"].map((item) => (
+              {["About", "Experience", "Projects", "Skills", "Community", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -73,15 +73,18 @@ export default function Landing() {
           >
             <motion.div variants={itemVariants} className="space-y-8">
               <div className="inline-block bg-secondary border-4 border-black px-4 py-2 text-xl font-bold neo-shadow-sm rotate-1">
-                👋 Hello, I'm Bilal
+                👋 Hello, I'm Bilal Aamer
               </div>
-              <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tight text-black">
-                SENIOR <br />
-                <span className="text-primary bg-black px-2 text-white">DATA</span> <br />
-                SCIENTIST
+              <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight text-black">
+                SR. AI/ML <br />
+                <span className="text-primary bg-black px-2 text-white">ENGINEER</span> & <br />
+                DATA SCIENTIST
               </h1>
               <p className="text-xl md:text-2xl font-bold border-l-8 border-accent pl-6 py-2 bg-white neo-shadow">
-                Senior ML Engineer & GenAI/Agentic AI Engineer building the future of intelligent systems and communities.
+                Data Scientist specializing in GenAI and Agentic AI, with expertise in LLM fine-tuning, NLP pipelines, and intelligent automation.
+              </p>
+              <p className="text-lg font-medium text-gray-700">
+                Skilled in transforming complex data into actionable insights, optimizing operations, and delivering enterprise-scale AI solutions for Fortune 500 clients.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
@@ -93,10 +96,11 @@ export default function Landing() {
                   </a>
                 </Button>
                 <Button 
+                  asChild
                   variant="outline"
                   className="neo-button bg-white text-black hover:bg-gray-100 rounded-none h-14 px-8 text-xl"
                 >
-                  View Projects
+                  <a href="#projects">View Projects</a>
                 </Button>
               </div>
             </motion.div>
@@ -113,15 +117,17 @@ export default function Landing() {
                 </div>
                 <div className="space-y-2">
                   <div className="bg-secondary border-2 border-black px-3 py-1 inline-block font-bold text-sm transform -rotate-2">
-                    AI Enthusiast
+                    Agentic AI Specialist
                   </div>
                   <div className="bg-primary border-2 border-black px-3 py-1 inline-block font-bold text-sm text-white transform rotate-2 ml-2">
                     Community Builder
                   </div>
                 </div>
-                <p className="text-lg font-medium">
-                  "Turning complex data into actionable intelligence and building communities for the AI revolution."
-                </p>
+                <div className="flex flex-wrap justify-center gap-2 mt-4">
+                   {["HackerRank 5*", "CodeChef 3*", "LeetCode"].map((profile, i) => (
+                     <span key={i} className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase">{profile}</span>
+                   ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -141,74 +147,174 @@ export default function Landing() {
           </div>
         </div>
 
-        {/* Expertise Section */}
-        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Experience Section */}
+        <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-yellow-50 border-b-4 border-black">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow">
-              My Expertise
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform -rotate-1">
+              Work Experience
+            </h2>
+          </div>
+          
+          <div className="space-y-12">
+            {[
+              {
+                role: "Senior ML Engineer - Consultant",
+                company: "Fractal Analytics",
+                period: "Jan 2025 – Apr 2025",
+                type: "Remote",
+                desc: [
+                  "Built GenAI PoC for Fortune 500 clients, delivering document automation and NLP pipelines reducing manual effort by 60%.",
+                  "Engineered Computer Use agentic systems for operational automation, translating 8+ complex business workflows into AI-driven execution pipelines, enabling autonomous decision-making for RPA use cases."
+                ],
+                color: "bg-primary"
+              },
+              {
+                role: "Senior ML Engineer - Contractor",
+                company: "BNY Mellon",
+                period: "Jun 2024 – Oct 2024",
+                type: "Remote",
+                desc: [
+                  "Designed and implemented multi-agent GenAI orchestration system for event-stream decision automation.",
+                  "Developed intelligent data ingestion pipeline for unstructured documents (client communications, regulatory filings), enabling context-aware LLM recommendations deployed across 12 business units with 89% user adoption.",
+                  "Collaborated with VP-level AI leadership on scalable microservices architecture integrating vector databases, and predictive analytics, data volume scaling."
+                ],
+                color: "bg-secondary"
+              },
+              {
+                role: "Founding Engineer - Contractor",
+                company: "Anarchy AI (YC W23)",
+                period: "Nov 2023 – Feb 2024",
+                type: "Remote",
+                desc: [
+                  "Integrated LoRA/QLoRA fine-tuning and vLLM inference engine into LLM-VM Python package, reducing model latency by 40% and enabling 15+ enterprise integrations.",
+                  "Authored comprehensive technical documentation (setup to production deployment) for LLM-VM, driving adoption across developer community and reducing onboarding time by 50%.",
+                  "Partnered with community manager and founder on developer advocacy, growing active community contributors from 0 to 120+ and establishing LLM-VM as industry-standard devtool for LLM optimization."
+                ],
+                color: "bg-accent"
+              }
+            ].map((job, index) => (
+              <div key={index} className="relative pl-8 md:pl-0">
+                <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-black transform -translate-x-1/2"></div>
+                <div className={`md:flex items-center justify-between w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                  <div className="hidden md:block w-5/12"></div>
+                  <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-4 border-white rounded-full transform -translate-x-[18px] md:-translate-x-1/2 z-10"></div>
+                  <div className={`w-full md:w-5/12 bg-white border-4 border-black p-6 neo-shadow ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} hover:rotate-0 transition-transform`}>
+                    <div className={`inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black ${job.color}`}>
+                      {job.period}
+                    </div>
+                    <h3 className="text-2xl font-black uppercase">{job.role}</h3>
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-lg font-bold text-gray-700">{job.company}</span>
+                      <span className="text-sm font-bold bg-gray-200 px-2 py-1 border border-black">{job.type}</span>
+                    </div>
+                    <ul className="list-disc list-outside ml-5 space-y-2">
+                      {job.desc.map((point, i) => (
+                        <li key={i} className="text-base font-medium leading-snug">{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+              Featured Projects
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                title: "TreeCounting: Vision on a Drone",
+                tags: ["Computer Vision", "MCNN", "IoT", "AWS"],
+                desc: "Deployed vision models on UAVs for real-time object detection and tracking, simulating building sensor analytics for anomaly detection. Built full ML pipeline on AWS from data ingestion to batch inference endpoint.",
+                icon: <Cpu className="h-12 w-12" />,
+                color: "bg-green-300"
+              },
+              {
+                title: "AutoPaLM: Autonomous Agent",
+                tags: ["LLM Agents", "Prompt Engineering", "Python"],
+                desc: "Developed autonomous agent workflows integrating reinforcement learning and LLM reasoning for decision automation. Applied deep Q-networks (DQN) for iterative optimization of agent performance.",
+                icon: <Brain className="h-12 w-12" />,
+                color: "bg-blue-300"
+              }
+            ].map((project, index) => (
+              <div key={index} className={`bg-white border-4 border-black p-8 neo-shadow flex flex-col h-full relative overflow-hidden group`}>
+                <div className={`absolute top-0 right-0 w-24 h-24 ${project.color} border-l-4 border-b-4 border-black rounded-bl-full z-0 transition-transform group-hover:scale-150`}></div>
+                <div className="relative z-10">
+                  <div className="mb-6 border-2 border-black p-3 w-fit bg-white">
+                    {project.icon}
+                  </div>
+                  <h3 className="text-3xl font-black uppercase mb-4">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="bg-black text-white px-3 py-1 font-bold text-sm border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-lg font-medium leading-relaxed border-t-4 border-black pt-4">
+                    {project.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Technical Skills Section */}
+        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black text-white border-y-4 border-black">
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-primary text-white border-4 border-white px-8 py-4 neo-shadow-sm transform -rotate-1">
+              Technical Arsenal
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                title: "Generative AI",
-                icon: <Brain className="h-12 w-12" />,
-                desc: "Building LLM-powered applications, RAG systems, and custom fine-tuned models.",
-                color: "bg-primary",
-                textColor: "text-white"
-              },
-              {
-                title: "Agentic AI",
-                icon: <Terminal className="h-12 w-12" />,
-                desc: "Designing autonomous agents that can plan, reason, and execute complex tasks.",
-                color: "bg-secondary",
-                textColor: "text-black"
-              },
-              {
-                title: "ML Engineering",
-                icon: <Code2 className="h-12 w-12" />,
-                desc: "End-to-end MLOps, model deployment, scaling, and performance optimization.",
-                color: "bg-accent",
-                textColor: "text-white"
-              },
-              {
-                title: "Data Science",
-                icon: <Database className="h-12 w-12" />,
-                desc: "Advanced statistical analysis, predictive modeling, and data visualization.",
-                color: "bg-white",
-                textColor: "text-black"
-              },
-              {
-                title: "Community",
-                icon: <Users className="h-12 w-12" />,
-                desc: "Fostering growth and collaboration among AI enthusiasts and developers.",
-                color: "bg-black",
-                textColor: "text-white"
-              },
-              {
-                title: "Strategy",
-                icon: <Globe className="h-12 w-12" />,
-                desc: "Aligning AI initiatives with business goals for maximum impact and ROI.",
-                color: "bg-yellow-400",
-                textColor: "text-black"
-              }
+              { category: "Languages", items: ["Python", "R", "SQL", "C/C++", "Java", "JavaScript", "HTML/CSS", "Dart", "LaTeX"], icon: <Code2 /> },
+              { category: "ML/DL Frameworks", items: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "Ivy"], icon: <Brain /> },
+              { category: "Specializations", items: ["Time Series Analysis", "Predictive Analytics", "Anomaly Detection", "Agentic AI", "Prompt Engineering", "LLM Fine-tuning", "IoT Data Analytics"], icon: <Cpu /> },
+              { category: "Libraries", items: ["Pandas", "NumPy", "Matplotlib", "Plotly", "Seaborn", "PySpark"], icon: <Layers /> },
+              { category: "Data", items: ["Kafka (Streaming)", "MongoDB", "SQL Databases"], icon: <Database /> },
+              { category: "Cloud/Tools", items: ["AWS", "GCP", "Docker", "Git", "Jupyter", "Unix/Linux"], icon: <Cloud /> },
             ].map((skill, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.02, rotate: index % 2 === 0 ? 1 : -1 }}
-                className={`border-4 border-black p-8 neo-shadow flex flex-col h-full ${skill.color} ${skill.textColor}`}
-              >
-                <div className="mb-6 border-2 border-current p-3 w-fit rounded-none bg-white/20 backdrop-blur-sm">
+              <div key={index} className="border-4 border-white p-6 hover:bg-white hover:text-black transition-colors duration-300 group">
+                <div className="flex items-center gap-3 mb-4 border-b-4 border-white group-hover:border-black pb-2">
                   {skill.icon}
+                  <h3 className="text-xl font-black uppercase">{skill.category}</h3>
                 </div>
-                <h3 className="text-2xl font-black uppercase mb-4">{skill.title}</h3>
-                <p className="text-lg font-medium leading-relaxed opacity-90">
-                  {skill.desc}
-                </p>
-              </motion.div>
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item, i) => (
+                    <span key={i} className="text-sm font-bold border-2 border-white group-hover:border-black px-2 py-1">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+           <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col md:flex-row items-center gap-8">
+              <div className="bg-secondary p-6 border-4 border-black rounded-full">
+                <GraduationCap className="h-16 w-16" />
+              </div>
+              <div className="text-left">
+                <h3 className="text-3xl font-black uppercase mb-2">Education</h3>
+                <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
+                <p className="text-lg font-medium">Integrated Dual Degree (BTech + MTech), Computer Science and Engineering</p>
+                <p className="text-gray-600 font-bold mt-1">Hyderabad, TS • 2024 • 8 CGPA</p>
+                <p className="text-sm mt-2 font-medium">Coursework: AI, ML, Neural Networks, Deep Learning, Data Mining, DBMS, OOPS, OS, DSA, Speech Processing</p>
+              </div>
+           </div>
         </section>
 
         {/* Community Section */}
@@ -281,10 +387,19 @@ export default function Landing() {
             <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase leading-tight">
               Ready to <br/>Level Up?
             </h2>
-            <p className="text-2xl font-bold mb-12 max-w-2xl mx-auto">
+            <p className="text-2xl font-bold mb-8 max-w-2xl mx-auto">
               Whether you need a custom GenAI solution, expert consultation, or just want to chat about the future of AI.
             </p>
             
+            <div className="flex flex-col items-center gap-4 mb-12">
+               <div className="flex items-center gap-2 text-xl font-bold bg-white border-2 border-black px-4 py-2">
+                  <Mail className="h-5 w-5" /> bilalahmedaamer@gmail.com
+               </div>
+               <div className="flex items-center gap-2 text-xl font-bold bg-white border-2 border-black px-4 py-2">
+                  <span className="font-black">PHONE:</span> +91 (998) 990 0301
+               </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Button 
                 asChild
@@ -295,10 +410,13 @@ export default function Landing() {
                 </a>
               </Button>
               <Button 
+                asChild
                 variant="outline"
                 className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-16 px-10 text-2xl"
               >
-                <Mail className="mr-3 h-6 w-6" /> Email Me
+                <a href="mailto:bilalahmedaamer@gmail.com">
+                  <Mail className="mr-3 h-6 w-6" /> Email Me
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -310,20 +428,26 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
             <span className="text-3xl font-black tracking-tighter uppercase border-2 border-white p-1">
-              BILAL
+              BILAL AAMER
             </span>
             <p className="mt-4 text-gray-400 font-medium">
               © {new Date().getFullYear()} All rights reserved.
             </p>
           </div>
-          <div className="flex space-x-8">
-            {["Twitter", "LinkedIn", "GitHub", "Topmate"].map((social) => (
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              { name: "LinkedIn", url: "#" },
+              { name: "GitHub", url: "#" },
+              { name: "Twitter", url: "#" },
+              { name: "Kaggle", url: "#" },
+              { name: "Google Scholar", url: "#" }
+            ].map((social) => (
               <a
-                key={social}
-                href="#"
-                className="text-lg font-bold hover:text-primary transition-colors uppercase"
+                key={social.name}
+                href={social.url}
+                className="text-lg font-bold hover:text-primary transition-colors uppercase border-b-2 border-transparent hover:border-primary"
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>
