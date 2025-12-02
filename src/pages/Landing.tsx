@@ -1,9 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText, MessageSquare, ShieldCheck, Search, GitPullRequest, Plus } from "lucide-react";
+import { ArrowRight, Brain, Code2, Database, Globe, Mail, Terminal, Users, Briefcase, GraduationCap, Cpu, Cloud, Layers, FileText, MessageSquare, ShieldCheck, Search, GitPullRequest, Plus, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Landing() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check system preference on mount
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,13 +43,13 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden font-sans selection:bg-pink-500 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 overflow-x-hidden font-sans selection:bg-pink-500 selection:text-white transition-colors duration-300">
       {/* Navigation */}
-      <nav className="border-b-4 border-black bg-white sticky top-0 z-50">
+      <nav className="border-b-4 border-black dark:border-white bg-white dark:bg-neutral-950 sticky top-0 z-50 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-3xl font-black tracking-tighter uppercase border-2 border-black p-1 bg-primary text-white neo-shadow-sm transform -rotate-2">
+              <span className="text-3xl font-black tracking-tighter uppercase border-2 border-black dark:border-white p-1 bg-primary text-white neo-shadow-sm transform -rotate-2">
                 BILAL AAMER
               </span>
             </div>
@@ -42,16 +58,24 @@ export default function Landing() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-lg font-bold text-black hover:text-primary hover:underline decoration-4 underline-offset-4 transition-all"
+                  className="text-lg font-bold text-black dark:text-white hover:text-primary hover:underline decoration-4 underline-offset-4 transition-all"
                 >
                   {item}
                 </a>
               ))}
             </div>
-            <div>
+            <div className="flex items-center gap-4">
+              <Button 
+                onClick={toggleTheme}
+                variant="ghost"
+                size="icon"
+                className="neo-button bg-white dark:bg-neutral-900 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-none h-12 w-12 p-0 border-4 border-black dark:border-white"
+              >
+                {isDarkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
+              </Button>
               <Button 
                 asChild
-                className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-12 px-6 text-lg"
+                className="neo-button bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 rounded-none h-12 px-6 text-lg border-4 border-black dark:border-white hidden sm:inline-flex"
               >
                 <a href="https://topmate.io/bilal" target="_blank" rel="noopener noreferrer">
                   Book a Call
@@ -72,24 +96,24 @@ export default function Landing() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
             <motion.div variants={itemVariants} className="space-y-8">
-              <div className="inline-block bg-secondary border-4 border-black px-4 py-2 text-xl font-bold neo-shadow-sm rotate-1">
+              <div className="inline-block bg-secondary border-4 border-black dark:border-white px-4 py-2 text-xl font-bold neo-shadow-sm rotate-1 text-black">
                 👋 Hello, I'm Bilal Aamer
               </div>
-              <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight text-black">
+              <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight text-black dark:text-white">
                 GENAI & <br />
-                <span className="text-primary bg-black px-2 text-white">AGENTIC AI</span> <br />
+                <span className="text-primary bg-black dark:bg-white dark:text-primary px-2 text-white">AGENTIC AI</span> <br />
                 ARCHITECT
               </h1>
-              <p className="text-xl md:text-2xl font-bold border-l-8 border-accent pl-6 py-2 bg-white neo-shadow">
+              <p className="text-xl md:text-2xl font-bold border-l-8 border-accent pl-6 py-2 bg-white dark:bg-neutral-900 dark:text-white neo-shadow dark:shadow-[8px_8px_0px_#ffffff]">
                 Building the next generation of autonomous agents. I help enterprises leverage GenAI and Agentic workflows to automate complex decision-making and scale intelligence.
               </p>
-              <p className="text-lg font-medium text-gray-700">
+              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
                 Specializing in LLM fine-tuning, RAG pipelines, and multi-agent systems that turn unstructured data into business value.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
                   asChild
-                  className="neo-button bg-primary text-white hover:bg-pink-600 rounded-none h-14 px-8 text-xl"
+                  className="neo-button bg-primary text-white hover:bg-pink-600 rounded-none h-14 px-8 text-xl border-4 border-black dark:border-white"
                 >
                   <a href="https://topmate.io/bilal" target="_blank" rel="noopener noreferrer">
                     Let's Talk <ArrowRight className="ml-2 h-6 w-6" />
@@ -98,7 +122,7 @@ export default function Landing() {
                 <Button 
                   asChild
                   variant="outline"
-                  className="neo-button bg-white text-black hover:bg-gray-100 rounded-none h-14 px-8 text-xl"
+                  className="neo-button bg-white dark:bg-neutral-900 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-none h-14 px-8 text-xl border-4 border-black dark:border-white"
                 >
                   <a href="#projects">View Projects</a>
                 </Button>
@@ -106,9 +130,9 @@ export default function Landing() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="relative">
-              <div className="absolute inset-0 bg-accent translate-x-4 translate-y-4 border-4 border-black"></div>
-              <div className="relative bg-white border-4 border-black p-8 neo-shadow flex flex-col items-center justify-center min-h-[400px] text-center space-y-6">
-                <div className="w-48 h-48 bg-black rounded-full border-4 border-white outline outline-4 outline-black overflow-hidden mb-4">
+              <div className="absolute inset-0 bg-accent translate-x-4 translate-y-4 border-4 border-black dark:border-white"></div>
+              <div className="relative bg-white dark:bg-neutral-900 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col items-center justify-center min-h-[400px] text-center space-y-6">
+                <div className="w-48 h-48 bg-black rounded-full border-4 border-white outline outline-4 outline-black dark:outline-white overflow-hidden mb-4">
                   <img 
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Bilal&backgroundColor=ff0080" 
                     alt="Bilal Avatar" 
@@ -116,10 +140,10 @@ export default function Landing() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <div className="bg-secondary border-2 border-black px-3 py-1 inline-block font-bold text-sm transform -rotate-2">
+                  <div className="bg-secondary border-2 border-black dark:border-white px-3 py-1 inline-block font-bold text-sm transform -rotate-2 text-black">
                     GenAI / Agentic AI Specialist
                   </div>
-                  <div className="bg-primary border-2 border-black px-3 py-1 inline-block font-bold text-sm text-white transform rotate-2 ml-2">
+                  <div className="bg-primary border-2 border-black dark:border-white px-3 py-1 inline-block font-bold text-sm text-white transform rotate-2 ml-2">
                     Community Builder
                   </div>
                 </div>
@@ -130,9 +154,9 @@ export default function Landing() {
                      { name: "LeetCode", url: "https://leetcode.com/u/bilalaamer/" }
                    ].map((profile, i) => (
                      profile.url ? (
-                       <a key={i} href={profile.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase hover:bg-primary hover:text-white transition-colors">{profile.name}</a>
+                       <a key={i} href={profile.url} target="_blank" rel="noopener noreferrer" className="text-xs font-black border border-black dark:border-white px-2 py-1 bg-gray-100 dark:bg-neutral-800 dark:text-white uppercase hover:bg-primary hover:text-white transition-colors">{profile.name}</a>
                      ) : (
-                       <span key={i} className="text-xs font-black border border-black px-2 py-1 bg-gray-100 uppercase">{profile.name}</span>
+                       <span key={i} className="text-xs font-black border border-black dark:border-white px-2 py-1 bg-gray-100 dark:bg-neutral-800 dark:text-white uppercase">{profile.name}</span>
                      )
                    ))}
                 </div>
@@ -142,13 +166,13 @@ export default function Landing() {
         </section>
 
         {/* Skills Marquee */}
-        <div className="bg-black py-6 border-y-4 border-black overflow-hidden">
+        <div className="bg-black dark:bg-white py-6 border-y-4 border-black dark:border-white overflow-hidden">
           <div className="flex space-x-12 animate-marquee whitespace-nowrap">
             {[...Array(10)].map((_, i) => (
               <div key={i} className="flex items-center space-x-12">
-                <span className="text-4xl font-black text-white">MACHINE LEARNING</span>
+                <span className="text-4xl font-black text-white dark:text-black">MACHINE LEARNING</span>
                 <span className="text-4xl font-black text-secondary">GEN AI</span>
-                <span className="text-4xl font-black text-white">DATA SCIENCE</span>
+                <span className="text-4xl font-black text-white dark:text-black">DATA SCIENCE</span>
                 <span className="text-4xl font-black text-primary">AGENTIC AI</span>
               </div>
             ))}
@@ -156,9 +180,9 @@ export default function Landing() {
         </div>
 
         {/* Experience Section */}
-        <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-yellow-50 border-b-4 border-black">
+        <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-yellow-50 dark:bg-neutral-900 border-b-4 border-black dark:border-white transition-colors duration-300">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform -rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white dark:bg-neutral-800 dark:text-white border-4 border-black dark:border-white px-8 py-4 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] transform -rotate-1">
               Work Experience
             </h2>
           </div>
@@ -221,21 +245,21 @@ export default function Landing() {
               }
             ].map((job, index) => (
               <div key={index} className="relative pl-8 md:pl-0">
-                <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-black transform -translate-x-1/2"></div>
+                <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-black dark:bg-white transform -translate-x-1/2"></div>
                 <div className={`md:flex items-center justify-between w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
                   <div className="hidden md:block w-5/12"></div>
-                  <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-4 border-white rounded-full transform -translate-x-[18px] md:-translate-x-1/2 z-10"></div>
-                  <div className={`w-full md:w-5/12 bg-white border-4 border-black p-6 neo-shadow ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} hover:rotate-0 transition-transform`}>
-                    <div className={`inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black ${job.color}`}>
+                  <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-black dark:bg-white border-4 border-white dark:border-black rounded-full transform -translate-x-[18px] md:-translate-x-1/2 z-10"></div>
+                  <div className={`w-full md:w-5/12 bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-6 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} hover:rotate-0 transition-transform`}>
+                    <div className={`inline-block px-3 py-1 text-white dark:text-black font-bold text-sm mb-2 border-2 border-black dark:border-white ${job.color}`}>
                       {job.period}
                     </div>
-                    <h3 className="text-2xl font-black uppercase">{job.role}</h3>
+                    <h3 className="text-2xl font-black uppercase dark:text-white">{job.role}</h3>
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-lg font-bold text-gray-700">{job.company}</span>
+                      <span className="text-lg font-bold text-gray-700 dark:text-gray-300">{job.company}</span>
                     </div>
                     <ul className="list-disc list-outside ml-5 space-y-2">
                       {job.desc.map((point, i) => (
-                        <li key={i} className="text-base font-medium leading-snug">{point}</li>
+                        <li key={i} className="text-base font-medium leading-snug dark:text-gray-200">{point}</li>
                       ))}
                     </ul>
                   </div>
@@ -246,9 +270,9 @@ export default function Landing() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white dark:bg-neutral-950 transition-colors duration-300">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white dark:bg-neutral-800 dark:text-white border-4 border-black dark:border-white px-8 py-4 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] transform rotate-1">
               Featured Projects
             </h2>
           </div>
@@ -298,21 +322,21 @@ export default function Landing() {
                 color: "bg-blue-400"
               }
             ].map((project, index) => (
-              <div key={index} className={`bg-white border-4 border-black p-8 neo-shadow flex flex-col h-full relative overflow-hidden group`}>
-                <div className={`absolute top-0 right-0 w-24 h-24 ${project.color} border-l-4 border-b-4 border-black rounded-bl-full z-0 transition-transform group-hover:scale-150`}></div>
+              <div key={index} className={`bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col h-full relative overflow-hidden group`}>
+                <div className={`absolute top-0 right-0 w-24 h-24 ${project.color} border-l-4 border-b-4 border-black dark:border-white rounded-bl-full z-0 transition-transform group-hover:scale-150`}></div>
                 <div className="relative z-10">
-                  <div className="mb-6 border-2 border-black p-3 w-fit bg-white">
+                  <div className="mb-6 border-2 border-black dark:border-white p-3 w-fit bg-white dark:bg-neutral-900 dark:text-white">
                     {project.icon}
                   </div>
-                  <h3 className="text-3xl font-black uppercase mb-4">{project.title}</h3>
+                  <h3 className="text-3xl font-black uppercase mb-4 dark:text-white">{project.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="bg-black text-white px-3 py-1 font-bold text-sm border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-colors">
+                      <span key={i} className="bg-black dark:bg-white text-white dark:text-black px-3 py-1 font-bold text-sm border-2 border-transparent hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-colors">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-lg font-medium leading-relaxed border-t-4 border-black pt-4">
+                  <p className="text-lg font-medium leading-relaxed border-t-4 border-black dark:border-white pt-4 dark:text-gray-200">
                     {project.desc}
                   </p>
                 </div>
@@ -322,9 +346,9 @@ export default function Landing() {
         </section>
 
         {/* Open Source Contributions Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white border-b-4 border-black">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white dark:bg-neutral-950 border-b-4 border-black dark:border-white transition-colors duration-300">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-black text-white border-4 border-black px-8 py-4 neo-shadow-sm transform -rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-black dark:bg-white text-white dark:text-black border-4 border-black dark:border-white px-8 py-4 neo-shadow-sm transform -rotate-1">
               Open Source Impact
             </h2>
           </div>
@@ -362,36 +386,36 @@ export default function Landing() {
                 prs: "PR #180"
               }
             ].map((item, index) => (
-              <div key={index} className="border-4 border-black p-6 hover:bg-gray-50 transition-colors flex items-start gap-4">
-                <div className="bg-black text-white p-3 border-2 border-black">
+              <div key={index} className="border-4 border-black dark:border-white p-6 hover:bg-gray-50 dark:hover:bg-neutral-900 transition-colors flex items-start gap-4">
+                <div className="bg-black dark:bg-white text-white dark:text-black p-3 border-2 border-black dark:border-white">
                   <GitPullRequest className="h-8 w-8" />
                 </div>
                 <div className="w-full">
                   <div className="flex justify-between items-baseline mb-1 flex-wrap">
                     <h3 className="text-xl font-black uppercase text-primary">{item.org}</h3>
-                    <span className="text-sm font-bold text-gray-600 uppercase border-b-2 border-gray-300">{item.project}</span>
+                    <span className="text-sm font-bold text-gray-600 dark:text-gray-400 uppercase border-b-2 border-gray-300 dark:border-gray-700">{item.project}</span>
                   </div>
-                  <p className="text-base font-medium mb-2">{item.desc}</p>
-                  <span className="inline-block bg-secondary border-2 border-black px-2 py-1 text-xs font-bold uppercase">
+                  <p className="text-base font-medium mb-2 dark:text-gray-200">{item.desc}</p>
+                  <span className="inline-block bg-secondary border-2 border-black dark:border-white px-2 py-1 text-xs font-bold uppercase text-black">
                     {item.prs}
                   </span>
                 </div>
               </div>
             ))}
             
-            <div className="border-4 border-black border-dashed p-6 flex flex-col items-center justify-center gap-4 hover:bg-gray-50 transition-colors min-h-[180px]">
-              <div className="bg-black text-white p-3 border-2 border-black rounded-full">
+            <div className="border-4 border-black dark:border-white border-dashed p-6 flex flex-col items-center justify-center gap-4 hover:bg-gray-50 dark:hover:bg-neutral-900 transition-colors min-h-[180px]">
+              <div className="bg-black dark:bg-white text-white dark:text-black p-3 border-2 border-black dark:border-white rounded-full">
                 <Plus className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-black uppercase text-center">And Many More...</h3>
+              <h3 className="text-xl font-black uppercase text-center dark:text-white">And Many More...</h3>
             </div>
           </div>
         </section>
 
         {/* Technical Skills Section */}
-        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black text-white border-y-4 border-black">
+        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black dark:bg-white text-white dark:text-black border-y-4 border-black dark:border-white transition-colors duration-300">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-primary text-white border-4 border-white px-8 py-4 neo-shadow-sm transform -rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-primary text-white border-4 border-white dark:border-black px-8 py-4 neo-shadow-sm transform -rotate-1">
               Technical Arsenal
             </h2>
           </div>
@@ -405,14 +429,14 @@ export default function Landing() {
               { category: "Data", items: ["Kafka (Streaming)", "MongoDB", "SQL Databases"], icon: <Database /> },
               { category: "Cloud/Tools", items: ["AWS", "GCP", "Docker", "Git", "Jupyter", "Unix/Linux"], icon: <Cloud /> },
             ].map((skill, index) => (
-              <div key={index} className="border-4 border-white p-6 hover:bg-white hover:text-black transition-colors duration-300 group">
-                <div className="flex items-center gap-3 mb-4 border-b-4 border-white group-hover:border-black pb-2">
+              <div key={index} className="border-4 border-white dark:border-black p-6 hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white transition-colors duration-300 group">
+                <div className="flex items-center gap-3 mb-4 border-b-4 border-white dark:border-black group-hover:border-black dark:group-hover:border-white pb-2">
                   {skill.icon}
                   <h3 className="text-xl font-black uppercase">{skill.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {skill.items.map((item, i) => (
-                    <span key={i} className="text-sm font-bold border-2 border-white group-hover:border-black px-2 py-1">
+                    <span key={i} className="text-sm font-bold border-2 border-white dark:border-black group-hover:border-black dark:group-hover:border-white px-2 py-1">
                       {item}
                     </span>
                   ))}
@@ -423,28 +447,28 @@ export default function Landing() {
         </section>
 
         {/* Education Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white dark:bg-neutral-950 transition-colors duration-300">
            <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white dark:bg-neutral-800 dark:text-white border-4 border-black dark:border-white px-8 py-4 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] transform rotate-1">
               Education
             </h2>
           </div>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Masters Tile */}
-              <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col gap-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+              <div className="bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary border-l-4 border-b-4 border-black dark:border-white rounded-bl-full z-0"></div>
                 <div className="relative z-10">
-                  <div className="bg-secondary p-4 border-4 border-black rounded-full w-fit mb-4">
+                  <div className="bg-secondary p-4 border-4 border-black dark:border-white rounded-full w-fit mb-4 text-black">
                     <GraduationCap className="h-10 w-10" />
                   </div>
-                  <h3 className="text-2xl font-black uppercase mb-2">Master of Technology</h3>
-                  <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
+                  <h3 className="text-2xl font-black uppercase mb-2 dark:text-white">Master of Technology</h3>
+                  <h4 className="text-xl font-bold dark:text-gray-200">Jawaharlal Nehru Technological University</h4>
                   <p className="text-lg font-medium text-primary mt-1">Computer Science</p>
                   <div className="mt-6">
-                    <p className="text-sm font-black uppercase mb-2 text-gray-500">Advanced Coursework</p>
+                    <p className="text-sm font-black uppercase mb-2 text-gray-500 dark:text-gray-400">Advanced Coursework</p>
                     <div className="flex flex-wrap gap-2">
                       {["Artificial Intelligence", "Machine Learning", "Neural Networks", "Deep Learning", "Speech Processing", "NLP"].map((course, i) => (
-                        <span key={i} className="text-xs font-bold border border-black px-2 py-1 bg-gray-50">{course}</span>
+                        <span key={i} className="text-xs font-bold border border-black dark:border-white px-2 py-1 bg-gray-50 dark:bg-neutral-900 dark:text-gray-200">{course}</span>
                       ))}
                     </div>
                   </div>
@@ -452,20 +476,20 @@ export default function Landing() {
               </div>
 
               {/* Bachelors Tile */}
-              <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col gap-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-primary border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+              <div className="bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col gap-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary border-l-4 border-b-4 border-black dark:border-white rounded-bl-full z-0"></div>
                 <div className="relative z-10">
-                  <div className="bg-primary p-4 border-4 border-black rounded-full w-fit mb-4 text-white">
+                  <div className="bg-primary p-4 border-4 border-black dark:border-white rounded-full w-fit mb-4 text-white">
                     <GraduationCap className="h-10 w-10" />
                   </div>
-                  <h3 className="text-2xl font-black uppercase mb-2">Bachelor of Technology</h3>
-                  <h4 className="text-xl font-bold">Jawaharlal Nehru Technological University</h4>
+                  <h3 className="text-2xl font-black uppercase mb-2 dark:text-white">Bachelor of Technology</h3>
+                  <h4 className="text-xl font-bold dark:text-gray-200">Jawaharlal Nehru Technological University</h4>
                   <p className="text-lg font-medium text-primary mt-1">Computer Science and Engineering</p>
                   <div className="mt-6">
-                    <p className="text-sm font-black uppercase mb-2 text-gray-500">Core Coursework</p>
+                    <p className="text-sm font-black uppercase mb-2 text-gray-500 dark:text-gray-400">Core Coursework</p>
                     <div className="flex flex-wrap gap-2">
                       {["Data Structures (DSA)", "DBMS", "Operating Systems", "OOPS", "Data Mining", "Computer Networks"].map((course, i) => (
-                        <span key={i} className="text-xs font-bold border border-black px-2 py-1 bg-gray-50">{course}</span>
+                        <span key={i} className="text-xs font-bold border border-black dark:border-white px-2 py-1 bg-gray-50 dark:bg-neutral-900 dark:text-gray-200">{course}</span>
                       ))}
                     </div>
                   </div>
@@ -475,42 +499,42 @@ export default function Landing() {
         </section>
 
         {/* Community Leadership Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white border-b-4 border-black">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white dark:bg-neutral-950 border-b-4 border-black dark:border-white transition-colors duration-300">
           <div className="mb-16 text-center">
-            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-[#FF6F00] text-white border-4 border-black px-8 py-4 neo-shadow transform rotate-1">
+            <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-[#FF6F00] text-white border-4 border-black dark:border-white px-8 py-4 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] transform rotate-1">
               Community Leadership
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* TFUG */}
-            <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFD54F] border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+            <div className="bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFD54F] border-l-4 border-b-4 border-black dark:border-white rounded-bl-full z-0"></div>
                <div className="relative z-10">
-                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black bg-[#FF6F00]">
+                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black dark:border-white bg-[#FF6F00]">
                     2022 – Present
                   </div>
-                  <h3 className="text-2xl font-black uppercase mb-1">Community Organizer</h3>
-                  <h4 className="text-xl font-bold mb-4">TensorFlow User Group</h4>
+                  <h3 className="text-2xl font-black uppercase mb-1 dark:text-white">Community Organizer</h3>
+                  <h4 className="text-xl font-bold mb-4 dark:text-gray-200">TensorFlow User Group</h4>
                   <ul className="list-disc list-outside ml-5 space-y-2">
-                    <li className="text-base font-medium leading-snug">Organize and host meetups, webinars, and technical discussions on TensorFlow, deep learning, and emerging AI technologies.</li>
-                    <li className="text-base font-medium leading-snug">Cultivate platform for knowledge sharing, professional networking, and skill development among 500+ local technology enthusiasts.</li>
+                    <li className="text-base font-medium leading-snug dark:text-gray-200">Organize and host meetups, webinars, and technical discussions on TensorFlow, deep learning, and emerging AI technologies.</li>
+                    <li className="text-base font-medium leading-snug dark:text-gray-200">Cultivate platform for knowledge sharing, professional networking, and skill development among 500+ local technology enthusiasts.</li>
                   </ul>
                </div>
             </div>
 
             {/* GDSC */}
-            <div className="bg-white border-4 border-black p-8 neo-shadow flex flex-col relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-24 h-24 bg-[#4285F4] border-l-4 border-b-4 border-black rounded-bl-full z-0"></div>
+            <div className="bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] flex flex-col relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-24 h-24 bg-[#4285F4] border-l-4 border-b-4 border-black dark:border-white rounded-bl-full z-0"></div>
                <div className="relative z-10">
-                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black bg-[#EA4335]">
+                  <div className="inline-block px-3 py-1 text-white font-bold text-sm mb-2 border-2 border-black dark:border-white bg-[#EA4335]">
                     2020 – 2023
                   </div>
-                  <h3 className="text-2xl font-black uppercase mb-1">Lead</h3>
-                  <h4 className="text-xl font-bold mb-4">Google Developer Student Club</h4>
+                  <h3 className="text-2xl font-black uppercase mb-1 dark:text-white">Lead</h3>
+                  <h4 className="text-xl font-bold mb-4 dark:text-gray-200">Google Developer Student Club</h4>
                   <ul className="list-disc list-outside ml-5 space-y-2">
-                    <li className="text-base font-medium leading-snug">Orchestrated 25+ 100%-sponsored technical events attracting 100+ in-person attendees per session.</li>
-                    <li className="text-base font-medium leading-snug">Led workshops, tech talks, and collaborative learning initiatives promoting Google technologies, open source, and programming excellence.</li>
+                    <li className="text-base font-medium leading-snug dark:text-gray-200">Orchestrated 25+ 100%-sponsored technical events attracting 100+ in-person attendees per session.</li>
+                    <li className="text-base font-medium leading-snug dark:text-gray-200">Led workshops, tech talks, and collaborative learning initiatives promoting Google technologies, open source, and programming excellence.</li>
                   </ul>
                </div>
             </div>
@@ -518,17 +542,17 @@ export default function Landing() {
         </section>
 
         {/* Community Section */}
-        <section id="community" className="py-24 bg-[#FF6F00] border-y-4 border-black">
+        <section id="community" className="py-24 bg-[#FF6F00] border-y-4 border-black dark:border-white transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white border-4 border-black p-8 md:p-16 neo-shadow relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFD54F] border-l-4 border-b-4 border-black rounded-bl-full"></div>
+            <div className="bg-white dark:bg-neutral-800 border-4 border-black dark:border-white p-8 md:p-16 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFD54F] border-l-4 border-b-4 border-black dark:border-white rounded-bl-full"></div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div>
-                  <h2 className="text-5xl font-black mb-6 uppercase">
+                  <h2 className="text-5xl font-black mb-6 uppercase dark:text-white">
                     Building <span className="text-[#FF6F00] underline decoration-4">Communities</span>
                   </h2>
-                  <p className="text-xl font-medium mb-8 leading-relaxed">
+                  <p className="text-xl font-medium mb-8 leading-relaxed dark:text-gray-200">
                     I'm passionate about connecting AI enthusiasts. Whether it's organizing hackathons, speaking at conferences, or mentoring the next generation of data scientists, I believe in the power of community.
                   </p>
                   <ul className="space-y-4 mb-8">
@@ -538,15 +562,15 @@ export default function Landing() {
                       "Open Source Contributions",
                       "Knowledge Sharing Workshops"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center text-lg font-bold">
-                        <div className="w-4 h-4 bg-black mr-4"></div>
+                      <li key={i} className="flex items-center text-lg font-bold dark:text-gray-200">
+                        <div className="w-4 h-4 bg-black dark:bg-white mr-4"></div>
                         {item}
                       </li>
                     ))}
                   </ul>
                   <Button 
                     asChild
-                    className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-14 px-8 text-xl w-full sm:w-auto"
+                    className="neo-button bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 rounded-none h-14 px-8 text-xl w-full sm:w-auto border-4 border-black dark:border-white"
                   >
                     <a href="https://www.commudle.com/communities/tfug-hyderabad" target="_blank" rel="noopener noreferrer">
                       Join the Movement
@@ -554,17 +578,17 @@ export default function Landing() {
                   </Button>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#FF6F00] h-48 border-4 border-black neo-shadow-sm flex items-center justify-center">
+                  <div className="bg-[#FF6F00] h-48 border-4 border-black dark:border-white neo-shadow-sm flex items-center justify-center">
                     <Users className="h-16 w-16 text-white" />
                   </div>
-                  <div className="bg-[#FFD54F] h-48 border-4 border-black neo-shadow-sm mt-8 flex items-center justify-center">
+                  <div className="bg-[#FFD54F] h-48 border-4 border-black dark:border-white neo-shadow-sm mt-8 flex items-center justify-center">
                     <Globe className="h-16 w-16 text-black" />
                   </div>
-                  <div className="bg-[#FFA000] h-48 border-4 border-black neo-shadow-sm -mt-8 flex items-center justify-center">
+                  <div className="bg-[#FFA000] h-48 border-4 border-black dark:border-white neo-shadow-sm -mt-8 flex items-center justify-center">
                     <Terminal className="h-16 w-16 text-black" />
                   </div>
-                  <div className="bg-black h-48 border-4 border-black neo-shadow-sm flex items-center justify-center">
-                    <Brain className="h-16 w-16 text-white" />
+                  <div className="bg-black dark:bg-white h-48 border-4 border-black dark:border-white neo-shadow-sm flex items-center justify-center">
+                    <Brain className="h-16 w-16 text-white dark:text-black" />
                   </div>
                 </div>
               </div>
@@ -578,23 +602,23 @@ export default function Landing() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", bounce: 0.5 }}
-            className="bg-secondary border-4 border-black p-12 md:p-20 neo-shadow relative"
+            className="bg-secondary border-4 border-black dark:border-white p-12 md:p-20 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] relative"
           >
-            <div className="absolute -top-6 -left-6 bg-primary text-white px-6 py-2 border-4 border-black font-black text-xl rotate-[-5deg] neo-shadow-sm">
+            <div className="absolute -top-6 -left-6 bg-primary text-white px-6 py-2 border-4 border-black dark:border-white font-black text-xl rotate-[-5deg] neo-shadow-sm">
               AVAILABLE FOR HIRE
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase leading-tight">
+            <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase leading-tight text-black">
               Ready to <br/>Level Up?
             </h2>
-            <p className="text-2xl font-bold mb-8 max-w-2xl mx-auto">
+            <p className="text-2xl font-bold mb-8 max-w-2xl mx-auto text-black">
               Whether you need a custom GenAI solution, expert consultation, or just want to chat about the future of AI.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Button 
                 asChild
-                className="neo-button bg-white text-black hover:bg-gray-100 rounded-none h-16 px-10 text-2xl"
+                className="neo-button bg-white text-black hover:bg-gray-100 rounded-none h-16 px-10 text-2xl border-4 border-black dark:border-white"
               >
                 <a href="https://topmate.io/bilal" target="_blank" rel="noopener noreferrer">
                   Book a Call Now
@@ -603,7 +627,7 @@ export default function Landing() {
               <Button 
                 asChild
                 variant="outline"
-                className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-16 px-10 text-2xl"
+                className="neo-button bg-black text-white hover:bg-gray-800 rounded-none h-16 px-10 text-2xl border-4 border-black dark:border-white"
               >
                 <a href="mailto:bilalahmedaamer@gmail.com">
                   <Mail className="mr-3 h-6 w-6" /> Email Me
@@ -615,7 +639,7 @@ export default function Landing() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12 border-t-4 border-black">
+      <footer className="bg-black dark:bg-neutral-950 text-white py-12 border-t-4 border-black dark:border-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
             <span className="text-3xl font-black tracking-tighter uppercase border-2 border-white p-1">
