@@ -391,15 +391,6 @@ export default function Landing() {
               Whether you need a custom GenAI solution, expert consultation, or just want to chat about the future of AI.
             </p>
             
-            <div className="flex flex-col items-center gap-4 mb-12">
-               <div className="flex items-center gap-2 text-xl font-bold bg-white border-2 border-black px-4 py-2">
-                  <Mail className="h-5 w-5" /> bilalahmedaamer@gmail.com
-               </div>
-               <div className="flex items-center gap-2 text-xl font-bold bg-white border-2 border-black px-4 py-2">
-                  <span className="font-black">PHONE:</span> +91 (998) 990 0301
-               </div>
-            </div>
-
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Button 
                 asChild
