@@ -192,7 +192,7 @@ export default function Landing() {
               {
                 role: "Senior ML Engineer - Consultant",
                 company: "Fractal Analytics",
-                period: "Jan 2025 – Apr 2025",
+                period: "2025",
                 desc: [
                   "Built GenAI PoC for Fortune 500 clients, delivering document automation and NLP pipelines reducing manual effort by 60%.",
                   "Engineered Computer Use agentic systems for operational automation, translating 8+ complex business workflows into AI-driven execution pipelines, enabling autonomous decision-making for RPA use cases."
@@ -202,7 +202,7 @@ export default function Landing() {
               {
                 role: "Senior ML Engineer - Contractor",
                 company: "BNY Mellon",
-                period: "Jun 2024 – Oct 2024",
+                period: "2024",
                 desc: [
                   "Designed and implemented multi-agent GenAI orchestration system for event-stream decision automation.",
                   "Developed intelligent data ingestion pipeline for unstructured documents (client communications, regulatory filings), enabling context-aware LLM recommendations deployed across 12 business units with 89% user adoption.",
@@ -213,7 +213,7 @@ export default function Landing() {
               {
                 role: "Founding Engineer - Contractor",
                 company: "Anarchy AI (YC W23)",
-                period: "Nov 2023 – Feb 2024",
+                period: "2023 – 2024",
                 desc: [
                   "Integrated LoRA/QLoRA fine-tuning and vLLM inference engine into LLM-VM Python package, reducing model latency by 40% and enabling 15+ enterprise integrations.",
                   "Authored comprehensive technical documentation (setup to production deployment) for LLM-VM, driving adoption across developer community and reducing onboarding time by 50%.",
@@ -224,7 +224,7 @@ export default function Landing() {
               {
                 role: "ML Research Engineer",
                 company: "IIT Hyderabad",
-                period: "Sept 2022 – Jan 2023",
+                period: "2022 – 2023",
                 desc: [
                   "Curated, augmented, and meticulously cleaned large-scale sensor and imagery datasets, implementing rigorous quality assurance protocols ensuring data integrity for downstream ML tasks.",
                   "Designed and implemented state-of-the-art vision-based model architecture achieving 85% initial accuracy on UAV-mounted inference tasks for predictive infrastructure inspection workflows.",
@@ -235,7 +235,7 @@ export default function Landing() {
               {
                 role: "ML Researcher",
                 company: "JHUB",
-                period: "Aug 2022 – Dec 2022",
+                period: "2022",
                 desc: [
                   "Collaborated with domain experts to engineer pioneering feature representations capturing intricate molecular interactions, directly improving model efficacy and interpretability.",
                   "Orchestrated comprehensive hyperparameter optimization and model architecture experimentation, achieving 3% accuracy enhancement to 93% while maintaining generalization performance.",
