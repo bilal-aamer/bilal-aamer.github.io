@@ -181,6 +181,7 @@ export default function Landing() {
 
         {/* Experience Section */}
         <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-yellow-50 dark:bg-neutral-900 border-b-4 border-black dark:border-white transition-colors duration-300">
+          {/* Work Experience Content */}
           <div className="mb-16 text-center">
             <h2 className="text-5xl md:text-6xl font-black uppercase inline-block bg-white dark:bg-neutral-800 dark:text-white border-4 border-black dark:border-white px-8 py-4 neo-shadow dark:shadow-[8px_8px_0px_#ffffff] transform -rotate-1">
               Work Experience
